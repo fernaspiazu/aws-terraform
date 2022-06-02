@@ -30,6 +30,6 @@ resource "aws_instance" "dummy_instance" {
   user_data              = file("${path.module}/user_data/run.sh")
 
   tags = {
-    "Name" = "Dummy Instance Example"
+    "Name" = "Dummy Instance Example again"
   }
 }
