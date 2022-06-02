@@ -1,10 +1,8 @@
-variable "region" {
-  default = ""
-}
+variable "region" {}
 
-variable "arn_role" {
-  default = "arn:aws:iam::392574648905:role/TerraformCloudAssumedRole"
-}
+variable "access_key" {}
+
+variable "secret_key" {}
 
 variable "vpc_name" {
   default = "main-vpc"
