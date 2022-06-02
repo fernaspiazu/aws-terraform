@@ -26,3 +26,21 @@ resource "aws_internet_gateway" "main_igw" {
     "Name" = "${var.vpc_name}-igw"
   }
 }
+
+resource "aws_route_table" "main_public_rt" {
+  vpc_id = aws_vpc.main_vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    egress_only_gateway_id = aws_internet_gateway.main_igw.id
+  }
+
+  tags = {
+    "Name" = "${var.vpc_name}-pub-rt"
+  }
+}
+
+resource "aws_route_table_association" "main_rt_ass_pub_subnet" {
+  route_table_id = aws_route_table.main_public_rt.id
+  subnet_id = aws_subnet.public_subnet.id
+}
