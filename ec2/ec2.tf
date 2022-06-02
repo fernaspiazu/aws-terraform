@@ -1,6 +1,6 @@
 resource "aws_security_group" "dummy_instance_sg" {
   name   = "dummy-sg"
-  vpc_id = data.terraform_remote_state.vpc.vpc_id
+  vpc_id = data.terraform_remote_state.vpc.outputs.vpc_id
 }
 
 resource "aws_security_group_rule" "egress_allow_all" {
