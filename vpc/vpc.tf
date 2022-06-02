@@ -15,6 +15,6 @@ resource "aws_subnet" "public_subnet" {
   availability_zone       = "${var.region}a"
 
   tags = {
-    Name = "${var.vpc_name}-public-subnet"
+    Name = "${var.vpc_name}-pub-sn"
   }
 }
