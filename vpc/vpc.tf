@@ -42,5 +42,5 @@ resource "aws_route_table" "main_public_rt" {
 
 resource "aws_route_table_association" "main_rt_ass_pub_subnet" {
   route_table_id = aws_route_table.main_public_rt.id
-  subnet_id = aws_subnet.public_subnet.id
+  subnet_id      = aws_subnet.public_subnet.id
 }

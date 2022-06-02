@@ -13,6 +13,8 @@ variable "secret_key" {
   description = "AWS Secret Key"
 }
 
-variable "vpc_name" {
-  default = "main-vpc"
+variable "ami_amzn_linux_2" {
+  type        = string
+  description = "Amazon Linux 2 AMI (HVM) - Kernel 5.10, SSD Volume Type (64-bit x86)"
+  default     = "ami-09439f09c55136ecf"
 }
