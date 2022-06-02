@@ -18,3 +18,11 @@ resource "aws_subnet" "public_subnet" {
     Name = "${var.vpc_name}-pub-sn"
   }
 }
+
+resource "aws_internet_gateway" "main_igw" {
+  vpc_id = aws_vpc.main_vpc.id
+
+  tags = {
+    "Name" = "${var.vpc_name}-igw"
+  }
+}
