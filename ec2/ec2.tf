@@ -25,11 +25,11 @@ resource "aws_security_group_rule" "allow_http_access" {
 resource "aws_instance" "dummy_instance" {
   ami                    = var.ami_amzn_linux_2
   instance_type          = "t2.micro"
-  subnet_id              = data.terraform_remote_state.vpc.outputs.public_subnet_id
+  subnet_id              = data.terraform_remote_state.vpc.outputss.public_subnet_id
   vpc_security_group_ids = [aws_security_group.dummy_instance_sg.id]
   user_data              = file("${path.module}/user_data/run.sh")
 
   tags = {
-    "Name" = "Dummy Instance Example"
+    "Name" = "Dummy Instance Example 2"
   }
 }
