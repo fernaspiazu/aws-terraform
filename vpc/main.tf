@@ -21,7 +21,7 @@ terraform {
     organization = "fernaspiazu"
 
     workspaces {
-      name = "aws-terraform"
+      name = "aws-vpc"
     }
   }
 }
