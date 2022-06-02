@@ -32,7 +32,7 @@ resource "aws_route_table" "main_public_rt" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    egress_only_gateway_id = aws_internet_gateway.main_igw.id
+    gateway_id = aws_internet_gateway.main_igw.id
   }
 
   tags = {
