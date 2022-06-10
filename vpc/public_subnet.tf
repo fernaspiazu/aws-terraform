@@ -1,46 +1,12 @@
-resource "aws_subnet" "public_subnet_a" {
+resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.main_vpc.id
-  cidr_block              = "10.161.0.0/24"
+  cidr_block              = "10.161.50.0/23"
   map_public_ip_on_launch = true
   availability_zone       = "${var.region}a"
 
   tags = {
-    Name = "${var.vpc_name}-public-sn-a"
+    Name = "${var.vpc_name}-public-sn"
   }
-
-  depends_on = [
-    aws_vpc_ipv4_cidr_block_association.cidr_10_161
-  ]
-}
-
-resource "aws_subnet" "public_subnet_b" {
-  vpc_id                  = aws_vpc.main_vpc.id
-  cidr_block              = "10.161.1.0/24"
-  map_public_ip_on_launch = true
-  availability_zone       = "${var.region}b"
-
-  tags = {
-    Name = "${var.vpc_name}-public-sn-b"
-  }
-
-  depends_on = [
-    aws_vpc_ipv4_cidr_block_association.cidr_10_161
-  ]
-}
-
-resource "aws_subnet" "public_subnet_c" {
-  vpc_id                  = aws_vpc.main_vpc.id
-  cidr_block              = "10.161.2.0/24"
-  map_public_ip_on_launch = true
-  availability_zone       = "${var.region}c"
-
-  tags = {
-    Name = "${var.vpc_name}-public-sn-c"
-  }
-
-  depends_on = [
-    aws_vpc_ipv4_cidr_block_association.cidr_10_161
-  ]
 }
 
 resource "aws_route_table" "main_public_rt" {
@@ -56,17 +22,7 @@ resource "aws_route_table" "main_public_rt" {
   }
 }
 
-resource "aws_route_table_association" "rt_ass_public_sn_a" {
+resource "aws_route_table_association" "rt_ass_public_sn" {
   route_table_id = aws_route_table.main_public_rt.id
-  subnet_id      = aws_subnet.public_subnet_a.id
-}
-
-resource "aws_route_table_association" "rt_ass_public_sn_b" {
-  route_table_id = aws_route_table.main_public_rt.id
-  subnet_id      = aws_subnet.public_subnet_b.id
-}
-
-resource "aws_route_table_association" "rt_ass_public_sn_c" {
-  route_table_id = aws_route_table.main_public_rt.id
-  subnet_id      = aws_subnet.public_subnet_c.id
+  subnet_id      = aws_subnet.public_subnet.id
 }
