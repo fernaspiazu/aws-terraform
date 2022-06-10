@@ -7,6 +7,10 @@ resource "aws_subnet" "public_subnet_a" {
   tags = {
     Name = "${var.vpc_name}-public-sn-a"
   }
+
+  depends_on = [
+    aws_vpc_ipv4_cidr_block_association.cidr_10_161
+  ]
 }
 
 resource "aws_subnet" "public_subnet_b" {
@@ -18,6 +22,10 @@ resource "aws_subnet" "public_subnet_b" {
   tags = {
     Name = "${var.vpc_name}-public-sn-b"
   }
+
+  depends_on = [
+    aws_vpc_ipv4_cidr_block_association.cidr_10_161
+  ]
 }
 
 resource "aws_subnet" "public_subnet_c" {
@@ -29,6 +37,10 @@ resource "aws_subnet" "public_subnet_c" {
   tags = {
     Name = "${var.vpc_name}-public-sn-c"
   }
+
+  depends_on = [
+    aws_vpc_ipv4_cidr_block_association.cidr_10_161
+  ]
 }
 
 resource "aws_route_table" "main_public_rt" {
