@@ -16,3 +16,23 @@ variable "secret_key" {
 variable "vpc_name" {
   default = "main-vpc"
 }
+
+variable "vpc_cidr" {
+  default = "10.150.0.0/16"
+}
+
+variable "public_subnet_cidr" {
+  type = map(string)
+  default = {
+    "a" = "10.150.50.0/23"
+  }
+}
+
+variable "private_subnet_cidr" {
+  type = map(string)
+  default = {
+    "a" = "10.150.60.0/24",
+    "b" = "10.150.61.0/24",
+    "c" = "10.150.62.0/24"
+  }
+}
