@@ -18,7 +18,7 @@ terraform {
 
   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = "fernaspiazu"
+    organization = var.organization
 
     workspaces {
       name = "aws-vpc"

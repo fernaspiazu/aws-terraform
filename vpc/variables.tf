@@ -13,6 +13,11 @@ variable "secret_key" {
   description = "AWS Secret Key"
 }
 
+variable "organization" {
+  type = string
+  description = "My TFC organization"
+}
+
 variable "vpc_name" {
   default = "main-vpc"
 }
