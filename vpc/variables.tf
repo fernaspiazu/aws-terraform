@@ -14,7 +14,7 @@ variable "secret_key" {
 }
 
 variable "organization" {
-  type = string
+  type        = string
   description = "My TFC organization"
 }
 
